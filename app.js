@@ -8,5 +8,5 @@ app.use(express(JSON));
 app.use('/', require('./router'));
 
 app.listen(PORT,()=>{
-    console.log(`Servidor escuchando en http://localhost:${port}`);
+    console.log(`Servidor escuchando en http://localhost:${PORT}`);
 }); 
