@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <script src="https://cdn.lordicon.com/pzdvqjsp.js"></script>
+    <title>Dinosaurios</title>
+</head>
+<body class="bg-info">
+    <nav class="navbar navbar-dark bg-dark">
+        <a class="navbar-brand" href="https://jurassicworld-evolution.fandom.com/wiki/Dinosaur">
+          <img src="../jurassic-park-2.svg" width="30" height="30" class="d-inline-block align-top" alt="">
+          Jurassic World Evolution
+        </a>
+    </nav>
+    <% if(dinosaurio){ %>
+    <div class="container mt-4">
+       <div class="card text-white bg-dark">
+            <div class="card-header">Editar Dinosaurio</div>
+            <div class="card-body">
+                <form action="/actualizar" method="post">
+                    <div class="mb-3">
+                        <label for="nombre" class="form-label">Nombre</label>
+                        <input type="text" class="form-control" id="nombre" name="nombre" value="<%= dinosaurio.nombre %>">
+                    </div>
+                    <div class="mb-3">
+                        <label for="dieta" class="form-label">Dieta</label>
+                        <select name="dieta" id="dieta" class="form-select">
+                            <option <%= dinosaurio.dieta == 'Carnívoro' ? "selected" : "" %> value="Carnívoro">Carnívoro</option>
+                            <option <%= dinosaurio.dieta == 'Herbívoro' ? "selected" : "" %> value="Herbívoro">Herbívoro</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="era" class="form-label">Era</label>
+                        <input type="text" class="form-control" id="era" name="era" value="<%= dinosaurio.era %>">
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <label for="altitud" class="form-label">Altitud (m)</label>
+                            <input type="text" class="form-control" id="eraltituda" name="altitud" value="<%= dinosaurio.altura %>">
+                        </div>
+                        <div class="col">
+                            <label for="longitud" class="form-label">Longitud (m)</label>
+                            <input type="text" class="form-control" id="longitud" name="longitud" value="<%= dinosaurio.longitud %>">
+                        </div>
+                        <div class="col">
+                            <label for="peso" class="form-label">Peso (Kg)</label>
+                            <input type="text" class="form-control" id="peso" name="peso" value="<%= dinosaurio.peso %>">
+                        </div>
+                        <div class="col">
+                            <label for="esperanza" class="form-label">Esp. de vida</label>
+                            <input type="text" class="form-control" id="esperanza" name="esperanza" value="<%= dinosaurio.esperanza %>">
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="familia" class="form-label">Familia</label>
+                        <input type="text" class="form-control" id="familia" name="familia" value="<%= dinosaurio.familia %>">
+                    </div>
+                    <input id="id" name="id" value="<%= dinosaurio.id %>" hidden>
+                    <button type="submit" class="btn btn-success">Guardar</button>
+                    <a href="/" class="btn btn-danger">Cancelar</a>
+                </form>
+            </div>
+       </div> 
+    </div>
+    <% } %>
+</body>
+</html>
